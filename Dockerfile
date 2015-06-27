@@ -1,4 +1,4 @@
-FROM vizzbuzz/base-alpine
+FROM alpine
 VOLUME /conf
 RUN \
     mkdir -p /aws && \
