@@ -1,5 +1,5 @@
 1. Create an S3 bucket
-2. Add files for each environment and call then <deploy-env>-env.sh
+2. Add files for each environment and call them <deploy-env>-env.sh
 3. Add the keys 
 
     - AWS_ACCESS_KEY_ID=<your-key>
@@ -17,7 +17,7 @@
         
 8. ** Run your app as any non-root user **
         
-If you're unsure take a look at docker-compose.yml
+If you're unsure take a look at docker-compose.yml it's all in there.
 
 To deploy an example on Tutum (change the AWS credentials after clicking):
 

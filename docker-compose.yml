@@ -4,8 +4,8 @@ pass:
   cpu_shares: 128
   mem_limit: 64m
   environment:
-    - AWS_ACCESS_KEY_ID=AKIAIKXCCSN73CCOZ72A
-    - AWS_SECRET_ACCESS_KEY=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
+    - AWS_ACCESS_KEY_ID=changeme
+    - AWS_SECRET_ACCESS_KEY=changeme
     - S3_BUCKET=vizzbuzz
     - DEPLOY_ENV=dev
   volumes:
