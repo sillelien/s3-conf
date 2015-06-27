@@ -8,13 +8,12 @@ pass:
     - AWS_SECRET_ACCESS_KEY=WXyhjWLBLPGFJqfV8WyYlhtu6OtSnMjGMhfj/wkw
     - S3_BUCKET=vizzbuzz
     - DEPLOY_ENV=dev
-    - S3_CONF_KEY=test-key
   volumes:
     - ./s3-conf-test:/conf
 
 test:
-  image: centurylink/openssl
-  command: sh -c "sleep 10; $(openssl enc -aes-256-cbc -d -a -k $S3_CONF_KEY -in /conf/env.sh.enc); set; ls -l /conf/* "
+  image: alpine
+  command: sh -c "sleep 10; $(cat /conf/env.sh); set; ls -l /conf/* "
   environment:
     - S3_CONF_KEY=test-key
   volumes:

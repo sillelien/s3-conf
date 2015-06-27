@@ -13,9 +13,9 @@
 6. On other images add the environment variable S3_CONF_KEY and map the volume from (4) to /conf (read-only)
 7. Add the following line to use the shell variables from your env.sh script, it must run as root.
 
-    $(openssl enc -aes-256-cbc -d -a -k $S3_CONF_KEY -in /conf/env.sh.enc)
+   . /conf/env.sh
         
-8. Run your app as any non-root user.
+8. ** Run your app as any non-root user **
         
 If you're unsure take a look at docker-compose.yml
         

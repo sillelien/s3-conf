@@ -11,7 +11,6 @@ s3-conf:
     - AWS_SECRET_ACCESS_KEY=changeme
     - S3_BUCKET=changeme
     - DEPLOY_ENV=dev
-    - S3_CONF_KEY=test-key
   volumes:
     - /etc/s3-conf:/conf
 
@@ -20,8 +19,6 @@ s3-conf:
 test:
   image: centurylink/openssl
   autorestart: never
-  command: sh -c "sleep 10; $(openssl enc -aes-256-cbc -d -a -k $S3_CONF_KEY -in /conf/env.sh.enc); set; ls -l /conf/* "
-  environment:
-    - S3_CONF_KEY=test-key
+  command: sh -c "sleep 10; . /conf/env.sh; set; ls -l /conf/* "
   volumes:
     - /etc/s3-conf:/conf:ro
