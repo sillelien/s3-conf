@@ -18,7 +18,6 @@ s3-conf:
 #Check the logs to see this has worked.
 test:
   image: alpine
-  autorestart: never
   command: sh -c "sleep 10; . /conf/env.sh; set; ls -l /conf/* "
   volumes:
     - /etc/s3-conf:/conf:ro
