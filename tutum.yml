@@ -14,6 +14,7 @@ s3-conf:
   volumes:
     - /etc/s3-conf:/conf
 
+#The next bit you can remove once you are happy it works okay!
 
 #Check the logs to see this has worked.
 test:
