@@ -1,3 +1,5 @@
+This image provides a container that will download all your secure environment variables from one of your S3 buckets and then put it into a shared volume. The other containers then just map to that volume, source the script and then run their applications as a non-root user.
+
 1. Create an S3 bucket
 2. Add files for each environment and call them <deploy-env>-env.sh
 3. Add the keys 
