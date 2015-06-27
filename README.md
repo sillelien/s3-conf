@@ -18,5 +18,9 @@
 8. ** Run your app as any non-root user **
         
 If you're unsure take a look at docker-compose.yml
+
+To deploy an example on Tutum (change the AWS credentials after clicking):
+
+[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
         
-        
+[![](https://badge.imagelayers.io/vizzbuzz/s3-conf.svg)](https://imagelayers.io/?images=vizzbuzz/s3-conf:latest 'Get your own badge on imagelayers.io')        
