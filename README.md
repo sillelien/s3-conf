@@ -6,11 +6,10 @@
     - AWS_SECRET_ACCESS_KEY=<your-secret>
     - S3_BUCKET=<the-s3-bucket>
     - DEPLOY_ENV=<deployment-env e.g. prod|dev>
-    - S3_CONF_KEY=<any-value>
 ```    
 4. Map the volume /conf to a directory on the host    
 5. Deploy this image to every host in $DEPLOY_ENV
-6. On other images add the environment variable S3_CONF_KEY and map the volume from (4) to /conf (read-only)
+6. On other images  map the volume from (4) to /conf (read-only)
 7. Add the following line to use the shell variables from your env.sh script, it must run as root.
 
    . /conf/env.sh
