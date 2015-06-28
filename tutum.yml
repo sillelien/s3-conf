@@ -20,6 +20,6 @@ s3-conf:
 #Check the logs to see this has worked.
 test:
   image: alpine
-  command: cat /conf/conf.yml | sh -u nobody -c "ls -l /conf/* ; cat < /dev/stdin"
+  command: sh -c 'adduser neil; sleep 10; cat /conf/conf.yml | su neil -c "ls -l /conf/* ; cat"'
   volumes:
     - /etc/s3-conf:/conf:ro
