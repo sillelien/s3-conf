@@ -9,12 +9,12 @@ It also avoids you checking in environment variables containing keys to Github b
     - AWS_ACCESS_KEY_ID=<your-key>
     - AWS_SECRET_ACCESS_KEY=<your-secret>
     - S3_BUCKET=<the-s3-bucket>
-    - S3_CONF_SOURCE_FILE=<your-sourcefile-in-s3>
-    - S3_CONF_DEST_FILE=<your-local-file>
+    - S3_CONF_SOURCE_FILE=<your-s3-file-name> #No path, just a name
+    - S3_CONF_DEST_FILE=<your-local-file> #No path, just a name
 ```    
-4. Map the volume `/conf` to a directory on the host    
+4. Map the volume `/conf` to a directory on your host    
 5. Deploy this image to every host in your environment.
-6. On other images  map the volume from (4) to `/conf` (read-only)
+6. On other containers map the volume from (4) to `/conf` (read-only)
 7. Use a line like the following, it must run as root and your app shouldn't.
 
    cat /conf/conf.yml | su appuser -c "node myapp.js"
