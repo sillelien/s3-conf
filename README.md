@@ -17,7 +17,7 @@ It also avoids you checking in environment variables containing keys to Github b
 6. On other images  map the volume from (4) to `/conf` (read-only)
 7. Use a line like the following, it must run as root and your app shouldn't.
 
-   cat /conf/conf | su -u appuser node myapp.js
+   cat /conf/conf.yml | su -u appuser node myapp.js
         
 8. Make sure your app reads from `stdin` like above so that we don't leak information.
         
