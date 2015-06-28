@@ -22,8 +22,10 @@ Just deploy this as a stack manually with the Tutum button and let it get them f
  
  7  Add the following line to use the shell variables from your env.sh script, it must run as root.
 
+```
    . /conf/env.sh
-        
+```
+
  8  ** Run your app as any non-root user **
         
 If you're unsure take a look at docker-compose.yml it's all in there.
