@@ -4,10 +4,11 @@ then
     chmod 600 /conf/env.sh
 fi
 
+resource="/${S3_BUCKET}/${DEPLOY_ENV}-env.sh"
+contentType="text/plain"
+
 while true
 do
-    resource="/${S3_BUCKET}/${DEPLOY_ENV}-env.sh"
-    contentType="text/plain"
     dateValue=`date -R`
     stringToSign="GET\n\n${contentType}\n${dateValue}\n${resource}"
     signature=`echo -en ${stringToSign} | openssl sha1 -hmac ${AWS_SECRET_ACCESS_KEY} -binary | base64`
