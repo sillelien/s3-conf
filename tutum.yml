@@ -10,7 +10,8 @@ s3-conf:
     - AWS_ACCESS_KEY_ID=changeme
     - AWS_SECRET_ACCESS_KEY=changeme
     - S3_BUCKET=changeme
-    - DEPLOY_ENV=dev
+    - S3_CONF_SOURCE_FILE=conf.yml
+    - S3_CONF_DEST_FILE=conf.yml
   volumes:
     - /etc/s3-conf:/conf
 
@@ -19,6 +20,6 @@ s3-conf:
 #Check the logs to see this has worked.
 test:
   image: alpine
-  command: sh -c "sleep 10; . /conf/env.sh; set; ls -l /conf/* "
+  command: cat /conf/conf.yml | sh -u nobody -c "ls -l /conf/* ; cat < /dev/stdin"
   volumes:
     - /etc/s3-conf:/conf:ro

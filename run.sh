@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 
-resource="/${S3_BUCKET}/${DEPLOY_ENV}-env.sh"
+resource="/${S3_BUCKET}/${S3_CONF_SOURCE_FILE}"
 contentType="text/plain"
 
 while true
@@ -13,18 +13,18 @@ do
       -H "Date: ${dateValue}" \
       -H "Content-Type: ${contentType}" \
       -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${signature}" \
-      https://${S3_BUCKET}.s3.amazonaws.com/${DEPLOY_ENV}-env.sh > /tmp/env.sh
-    if grep "<Error><Code>" /conf/env.sh
+      https://${S3_BUCKET}.s3.amazonaws.com/${S3_CONF_SOURCE_FILE} > /tmp/${S3_CONF_DEST_FILE}
+    if grep "<Error><Code>" /conf/${S3_CONF_DEST_FILE}
     then
         exit 1
     fi
-    if [ -f /conf/env.sh ]
+    if [ -f /conf/${S3_CONF_DEST_FILE} ]
     then
-        chmod 600 /conf/env.sh
+        chmod 600 /conf/${S3_CONF_DEST_FILE}
     fi
-    cp -f /tmp/env.sh /conf/env.sh
-    chmod 400 /conf/env.sh
-    chown root:root /conf/env.sh
+    cp -f /tmp/${S3_CONF_DEST_FILE} /conf/${S3_CONF_DEST_FILE}
+    chmod 400 /conf/${S3_CONF_DEST_FILE}
+    chown root:root /conf/${S3_CONF_DEST_FILE}
     if [ -n "$S3_CONF_AUTO_UPDATE_DELAY" ]
     then
         sleep "$S3_CONF_AUTO_UPDATE_DELAY"
