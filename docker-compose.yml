@@ -6,7 +6,7 @@ pass:
   environment:
     - AWS_ACCESS_KEY_ID=changeme
     - AWS_SECRET_ACCESS_KEY=changeme
-    - S3_BUCKET=vizzbuzz
+    - S3_BUCKET=changeme
     - DEPLOY_ENV=dev
   volumes:
     - ./s3-conf-test:/conf
@@ -14,8 +14,6 @@ pass:
 test:
   image: alpine
   command: sh -c "sleep 10; $(cat /conf/env.sh); set; ls -l /conf/* "
-  environment:
-    - S3_CONF_KEY=test-key
   volumes:
     - ./s3-conf-test:/conf:ro
 

@@ -1,11 +1,6 @@
 FROM alpine
 VOLUME /conf
-RUN \
-    mkdir -p /aws && \
-    apk -Uuv add groff less python py-pip && \
-    pip install awscli && \
-    apk --purge -v del py-pip && \
-    rm /var/cache/apk/*
+RUN apk -Uuv add openssl curl && rm /var/cache/apk/*
 COPY run.sh /run.sh
 RUN chmod 755 /run.sh
 CMD /run.sh
