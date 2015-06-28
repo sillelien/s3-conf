@@ -14,7 +14,7 @@ do
       -H "Content-Type: ${contentType}" \
       -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${signature}" \
       https://${S3_BUCKET}.s3.amazonaws.com/${S3_CONF_SOURCE_FILE} > /tmp/${S3_CONF_DEST_FILE}
-    if grep "<Error><Code>" /conf/${S3_CONF_DEST_FILE}
+    if grep "<Error><Code>" /tmp/${S3_CONF_DEST_FILE}
     then
         exit 1
     fi
@@ -24,7 +24,7 @@ do
     fi
     cp -f /tmp/${S3_CONF_DEST_FILE} /conf/${S3_CONF_DEST_FILE}
     chmod 400 /conf/${S3_CONF_DEST_FILE}
-    chown root:root /conf/${S3_CONF_DEST_FILE}
+    chown root:nobody /conf/${S3_CONF_DEST_FILE}
     if [ -n "$S3_CONF_AUTO_UPDATE_DELAY" ]
     then
         sleep "$S3_CONF_AUTO_UPDATE_DELAY"
