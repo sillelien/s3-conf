@@ -4,7 +4,7 @@ It also avoids you checking in environment variables containing keys to Github b
 Just deploy this as a stack manually with the Tutum button and let it get them from AWS instead.
 
 1. Create an S3 bucket
-2. Add files for each environment and call them {deploy-env}-env.sh
+2. Add files for each environment and call them {DEPLOY_ENV}-env.sh
 3. Add the keys 
 ```yaml
     - AWS_ACCESS_KEY_ID=<your-key>
