@@ -1,5 +1,8 @@
 This image provides a container that will download all your secure environment variables from one of your S3 buckets and then put it into a shared volume. The other containers then just map to that volume, source the script and then run their applications as a non-root user.
 
+It also avoids you checking in environment variables containing keys to Github by accident. 
+Just deploy this as a stack manually with the Tutum button and let it get them from AWS instead.
+
 1. Create an S3 bucket
 2. Add files for each environment and call them <deploy-env>-env.sh
 3. Add the keys 
