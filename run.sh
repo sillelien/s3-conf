@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
-if [ -f /conf/env.sh ]
-then
-    chmod 600 /conf/env.sh
-fi
+
 
 resource="/${S3_BUCKET}/${DEPLOY_ENV}-env.sh"
 contentType="text/plain"
@@ -21,9 +18,13 @@ do
     then
         exit 1
     fi
+    if [ -f /conf/env.sh ]
+    then
+        chmod 600 /conf/env.sh
+    fi
     cp -f /tmp/env.sh /conf/env.sh
     chmod 400 /conf/env.sh
-    chown root:nobody /conf/env.sh
+    chown root:root /conf/env.sh
     if [ -n "$S3_CONF_AUTO_UPDATE_DELAY" ]
     then
         sleep "$S3_CONF_AUTO_UPDATE_DELAY"
