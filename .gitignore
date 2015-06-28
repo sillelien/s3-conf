@@ -3,6 +3,7 @@
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 docker-compose-local.yml
 *.iml
+s3-conf-test/
 
 ## Directory-based project format:
 .idea/
