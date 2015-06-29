@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+set -x
 
 resource="/${S3_BUCKET}/${S3_CONF_SOURCE_FILE}"
 contentType="text/plain"
