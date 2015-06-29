@@ -2,9 +2,11 @@ This image provides a container that will download all your secure keys from one
 
 It also avoids you checking in environment variables containing keys to Github by accident.  Just deploy this as a stack manually with the Tutum button and let it get them from AWS instead.
 
-1. Create an S3 bucket
-2. Add a configuration file
-3. Add the environment variables as follows: 
+1 Create an S3 bucket
+
+2 Add a configuration file
+
+3 Add the environment variables as follows: 
 ```yaml
     - AWS_ACCESS_KEY_ID=<your-key>
     - AWS_SECRET_ACCESS_KEY=<your-secret>
@@ -12,14 +14,17 @@ It also avoids you checking in environment variables containing keys to Github b
     - S3_CONF_SOURCE_FILE=<your-s3-file-name> #No path, just a name
     - S3_CONF_DEST_FILE=<your-local-file> #No path, just a name
 ```    
-4. Map the volume `/conf` to a directory on your host    
-5. Deploy this image to every host in your environment.
-6. On other containers map the volume from (4) to `/conf` (read-only)
-7. Use a line like the following, it must run as root and your app shouldn't.
+4 Map the volume `/conf` to a directory on your host 
+
+5 Deploy this image to every host in your environment.
+
+6 On other containers map the volume from (4) to `/conf` (read-only)
+
+7 Use a line like the following, it must run as root and your app shouldn't.
 
    cat /conf/conf.yml | su appuser -c "node myapp.js"
         
-8. Make sure your app reads from `stdin` like above so that we don't leak information.
+8 Make sure your app reads from `stdin` like above so that we don't leak information.
         
 If you're unsure take a look at `docker-compose.yml` it's all in there.
 
