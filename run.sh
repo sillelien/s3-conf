@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-set -x
-
 resource="/${S3_BUCKET}/${S3_CONF_SOURCE_FILE}"
 contentType="text/plain"
 
@@ -26,6 +24,7 @@ do
     cp -f /tmp/${S3_CONF_DEST_FILE} /conf/${S3_CONF_DEST_FILE}
     chmod 400 /conf/${S3_CONF_DEST_FILE}
     chown root:nobody /conf/${S3_CONF_DEST_FILE}
+    echo "Configuration downloaded okay"
     if [ -n "$S3_CONF_AUTO_UPDATE_DELAY" ]
     then
         sleep "$S3_CONF_AUTO_UPDATE_DELAY"
