@@ -6,7 +6,7 @@ s3conf:
   mem_limit: 16m
   environment:
     - AWS_ACCESS_KEY_ID=AKIAJDOEIODYPCCCM5VA
-    - AWS_SECRET_ACCESS_KEY=rJDrL7LzF0EVCUrGULhnIcdkHbPanWHCzP5KRnlF
+    - AWS_SECRET_ACCESS_KEY=yoursecret
     - S3_BUCKET=s3-conf-example
     - S3_CONF_SOURCE_FILE=conf.yml
     - S3_CONF_DEST_FILE=conf.yml
