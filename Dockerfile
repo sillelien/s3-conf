@@ -1,4 +1,4 @@
-FROM vizzbuzz/base-alpine
+FROM sillelien/base-alpine:0.9.2
 VOLUME /conf
 RUN apk -Uuv add openssl curl && rm /var/cache/apk/*
 COPY run.sh /run.sh
